@@ -36,6 +36,7 @@ TextEditingController searchController = TextEditingController();
 ////////////////////////////////////////////////////////////
 
 @override
+
 void initState() {
 super.initState();
 fetchRooms();
@@ -103,6 +104,12 @@ return Scaffold(
   appBar: AppBar(
     title: const Text("Meeting Room Booking"),
     actions: [
+      Text(
+            "welcome ${widget.name}:",
+            style: const TextStyle(
+              fontSize: 20
+            ),
+          ), 
       IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
@@ -117,6 +124,8 @@ return Scaffold(
 
             },
           ),
+
+      
 
       IconButton(
         icon: const Icon(Icons.list_alt),
