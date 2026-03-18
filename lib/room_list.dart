@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'booking_page.dart';
 import 'booking_list.dart';
+import 'login.dart';
 
 //////////////////////////////////////////////////////////////
 // API URL
@@ -15,7 +16,9 @@ const String baseUrl = "http://localhost/flutter_booking_66701721/php_api/";
 //////////////////////////////////////////////////////////////
 
 class RoomList extends StatefulWidget {
-const RoomList({super.key});
+  final String name;
+
+const RoomList({super.key, required this.name});
 
 @override
 State<RoomList> createState() => _RoomListState();
@@ -100,6 +103,20 @@ return Scaffold(
   appBar: AppBar(
     title: const Text("Meeting Room Booking"),
     actions: [
+      IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
+                ),
+                (route) => false,
+              );
+
+            },
+          ),
 
       IconButton(
         icon: const Icon(Icons.list_alt),
